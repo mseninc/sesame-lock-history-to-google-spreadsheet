@@ -3,7 +3,7 @@
  * - Sesame API: https://doc.candyhouse.co/ja/SesameAPI
  *
  * 事前に Script Properties に以下を設定してください:
- *  - SESAME_NAME_LIST: ロックの識別名をセミコロン (;) 区切りで指定
+ *  - SESAME_NAME_LIST: ロックの識別名をカンマ (,) 区切りで指定
  *  - SESAME_識別名_DEVICE_ID: ロックのデバイス UUID
  *  - SESAME_識別名_API_KEY: ロックに対する API キー
  */
@@ -54,7 +54,7 @@ function runDaily() {
 
   const lockNames = props.getProperty(`SESAME_NAME_LIST`);
 
-  lockNames.split(';').forEach((lockName) => {
+  lockNames.split(',').forEach((lockName) => {
     const config = {
       apiKey: props.getProperty(`SESAME_${lockName}_API_KEY`),
       deviceId: props.getProperty(`SESAME_${lockName}_DEVICE_ID`),
